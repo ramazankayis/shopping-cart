@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-const ProductItem = ({ product, cart, setCart }) => {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
+const ProductItem = ({ product,  }) => {
+  const {cart, setCart} = useContext(CartContext)
   const findProduct = cart.find((item) => item.id === product.id);
-  console.log("findProduct", findProduct);
+ 
   const addToCart = (product) => {
     // setCart([...cart, product]);
     setCart((prevState) => [...prevState, product]);

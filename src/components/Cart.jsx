@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 // eslint-disable-next-line react/prop-types
-const Cart = ({ cart, emptyCart }) => {
+const Cart = () => {
+  const { cart, emptyCart } = useContext(CartContext);
   const total = cart.reduce((acc, item) => acc + item.price, 0);
-  console.log("cart222222222", cart);
+
   if (cart.length === 0) return;
 
   return (
